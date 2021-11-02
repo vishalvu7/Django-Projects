@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+td{
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+  <div class="navcontainer">
+    <div class="nav">
+        <ul class="ulclass">
+            <a href="/"> <li>Add Members</li></a>
+            <!-- <a href="{% url 'allmembers' %}"> <li>All Members</li></a> -->
+            <!-- <a href="/allmembers/"> <li>All Members</li></a> -->
+            
+        </ul>
+    </div>
+</div>
+ 
+
+<h1>All Members</h1>
+
+<table id="customers">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>City</th>
+    <th>Action(Update)</th>
+    <th>Action(Delete)</th>
+  </tr>
+  {% for member in members %}
+  <tr>
+    <td>{{member.name}}</td>
+    <td>{{member.email}}</td>
+    <td>{{member.city}}</td>
+    <td>  <a href="edit/{{member.id}}">Edit</a></td>
+    <td><a href="delete/{{member.id}}">Delete</a></td>
+    
+    
+  </tr>
+  {% endfor %}
+ 
+</table>
+
+</body>
+</html>
+
+
